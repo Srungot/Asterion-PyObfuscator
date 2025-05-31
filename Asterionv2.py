@@ -174,7 +174,7 @@ def obfuscate_file(input_file, output_file=None, options=None):
             if not validate_syntax(content):
                 raise SyntaxError("Invalid syntax after adding watermark")
         
-        base_content = "#this file has been obfuscated with Asterion v2 paid by @srungot\n#don't change this file, it will break all\n" + content
+        base_content = "#this file has been obfuscated with Asterion v2 by @srungot ( https://github.com/Srungot/Asterion-PyObfuscator )\n#don't change this file, it will break all\n" + content
         
         if options.get('integrity_check', True):
             content = inject_integrity_checks(base_content)
