@@ -22,7 +22,7 @@ A powerful and modern Python obfuscator designed to effectively protect your sou
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/Asterion-PyObfuscator.git
+git clone https://github.com/srungot/Asterion-PyObfuscator.git
 cd Asterion-PyObfuscator
 ```
 
