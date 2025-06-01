@@ -3,7 +3,6 @@ import string
 import ast
 
 def generate_random_var():
-    """Generate a random variable name with random number of underscores and a random letter"""
     left_underscores = '_' * random.randint(20, 100)
     right_underscores = '_' * random.randint(20, 100)
     
@@ -13,13 +12,11 @@ def generate_random_var():
     return var_name
 
 def generate_junk_line():
-    """Generate a complete junk variable line"""
     var_name = generate_random_var()
     value_var = generate_random_var()
     return f"{var_name} = \"\"\n{value_var} = {var_name}"
 
 def add_junk_vars(content):
-    """Add junk variables between each line of code"""
     tree = ast.parse(content)
     
     lines = content.split('\n')

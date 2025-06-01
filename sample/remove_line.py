@@ -1,9 +1,6 @@
 import ast
 
 def remove_empty_lines(source_code):
-    """
-    Remove ALL empty lines from the source code
-    """
     try:
         lines = source_code.splitlines()
         

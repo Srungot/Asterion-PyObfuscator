@@ -11,7 +11,6 @@ class IntegerObfuscator(ast.NodeTransformer):
         ]
     
     def _generate_obfuscated_number(self, number):
-        """Generate an obfuscated mathematical expression for a number"""
         if abs(number) <= 1:       
             return ast.Constant(value=number)
             
@@ -57,9 +56,6 @@ class IntegerObfuscator(ast.NodeTransformer):
         return node
 
 def obfuscate_integers(source_code):
-    """
-    Replace integer literals with obfuscated mathematical expressions
-    """
     try:
         tree = ast.parse(source_code)
         obfuscator = IntegerObfuscator()

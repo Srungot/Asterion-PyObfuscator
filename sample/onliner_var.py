@@ -2,7 +2,6 @@ import ast
 import re
 
 def find_consecutive_assignments(content):
-    """Find groups of consecutive variable assignments"""
     lines = content.split('\n')
     groups = []
     current_group = []
@@ -40,12 +39,10 @@ def find_consecutive_assignments(content):
     return groups
 
 def convert_to_oneline(group):
-    """Convert a group of assignments to a one-liner"""
     lines = [line.strip() for line in group]
     return ';'.join(lines)
 
 def oneline_variables(content):
-    """Convert consecutive variable assignments to one-liners"""
     groups = find_consecutive_assignments(content)
     
     if not groups:
@@ -67,7 +64,6 @@ def oneline_variables(content):
     return '\n'.join(lines)
 
 def process_file(content):
-    """Process a file to convert variable assignments to one-liners"""
     try:
         ast.parse(content)
         return oneline_variables(content)

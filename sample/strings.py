@@ -42,11 +42,10 @@ def encode_with_methods(string):
     current_data = string
     encoding_sequence = []
     
-    # D'abord appliquer 12 méthodes ROT
     random.shuffle(rot_methods)
     rot_count = 0
     for method_name, method_func in rot_methods:
-        if rot_count >= 12:  # On veut 12 ROT
+        if rot_count >= 12:      
             break
         try:
             new_data = method_func(current_data)
@@ -57,11 +56,10 @@ def encode_with_methods(string):
         except Exception as e:
             print(f"Failed to apply {method_name}: {str(e)}")
     
-    # Ensuite appliquer 3 méthodes de compression
     random.shuffle(compression_methods)
     compression_count = 0
     for method_name, method_func in compression_methods:
-        if compression_count >= 3:  # On veut 3 méthodes de compression
+        if compression_count >= 3:        
             break
         try:
             new_data = method_func(current_data)

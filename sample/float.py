@@ -11,7 +11,6 @@ class FloatObfuscator(ast.NodeTransformer):
         ]
     
     def _obfuscate_with_division(self, number):
-        """Obfuscate float using division"""
         multiplier = random.randint(2, 10)
         return ast.BinOp(
             left=ast.Constant(value=number * multiplier),
@@ -20,7 +19,6 @@ class FloatObfuscator(ast.NodeTransformer):
         )
     
     def _obfuscate_with_multiplication(self, number):
-        """Obfuscate float using multiplication"""
         factor = random.uniform(0.1, 10.0)
         return ast.BinOp(
             left=ast.Constant(value=number / factor),
@@ -29,7 +27,6 @@ class FloatObfuscator(ast.NodeTransformer):
         )
     
     def _obfuscate_with_addition(self, number):
-        """Obfuscate float using addition/subtraction"""
         offset = random.uniform(-10.0, 10.0)
         return ast.BinOp(
             left=ast.Constant(value=number - offset),
@@ -38,7 +35,6 @@ class FloatObfuscator(ast.NodeTransformer):
         )
 
     def _generate_obfuscated_float(self, number):
-        """Generate an obfuscated mathematical expression for a float"""
         if abs(number) < 0.0001 or math.isnan(number) or math.isinf(number):
             return ast.Constant(value=number)
             
@@ -56,9 +52,6 @@ class FloatObfuscator(ast.NodeTransformer):
         return node
 
 def obfuscate_floats(source_code):
-    """
-    Replace floating-point literals with obfuscated mathematical expressions
-    """
     try:
         tree = ast.parse(source_code)
         obfuscator = FloatObfuscator()
